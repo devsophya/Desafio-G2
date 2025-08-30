@@ -2,6 +2,8 @@
 
 Sistema completo para cadastro e validação de documentos CPF e CNPJ com validação em tempo real, tema claro/escuro e acessibilidade total.
 
+<a href="https://desafio-g2-eight.vercel.app/" target="_blank">Acesse aqui o desafio rodando na Vercel 🚀</a> 
+
 ![G2 Logo](public/favicon.svg)
 
 ## ✨ Características
