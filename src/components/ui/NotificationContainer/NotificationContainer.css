@@ -1,0 +1,135 @@
+/* Container de Notificações */
+.notification-container {
+  position: fixed;
+  z-index: var(--z-index-modal);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  pointer-events: none;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+/* Posicionamentos */
+.notification-container--top-right {
+  top: 0;
+  right: 0;
+  align-items: flex-end;
+}
+
+.notification-container--top-left {
+  top: 0;
+  left: 0;
+  align-items: flex-start;
+}
+
+.notification-container--bottom-right {
+  bottom: 0;
+  right: 0;
+  align-items: flex-end;
+  flex-direction: column-reverse;
+}
+
+.notification-container--bottom-left {
+  bottom: 0;
+  left: 0;
+  align-items: flex-start;
+  flex-direction: column-reverse;
+}
+
+.notification-container--top-center {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+}
+
+.notification-container--bottom-center {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .notification-container {
+    padding: var(--spacing-2);
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    align-items: stretch !important;
+  }
+  
+  .notification-container--top-center,
+  .notification-container--bottom-center {
+    left: 0;
+    transform: none;
+  }
+}
+
+/* Animação de entrada */
+.notification-container > * {
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+.notification-container--top-left > *,
+.notification-container--bottom-left > * {
+  animation: slideInFromLeft 0.3s ease-out;
+}
+
+.notification-container--top-center > *,
+.notification-container--bottom-center > * {
+  animation: slideInFromTop 0.3s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  .notification-container > * {
+    animation: fadeIn 0.2s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

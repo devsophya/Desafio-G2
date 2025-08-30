@@ -1,0 +1,152 @@
+/* Componente InputField */
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  width: 100%;
+}
+
+/* Label */
+.input-field__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  line-height: var(--line-height-tight);
+}
+
+.input-field__required {
+  color: var(--color-error);
+  margin-left: var(--spacing-1);
+}
+
+/* Wrapper do input */
+.input-field__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Ícones de status */
+.input-field__status {
+  position: absolute;
+  right: var(--spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.input-field__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.input-field__icon--success {
+  color: var(--color-success);
+}
+
+.input-field__icon--error {
+  color: var(--color-error);
+}
+
+/* Texto de ajuda */
+.input-field__helper {
+  font-size: var(--font-size-sm);
+  color: var(--color-textSecondary);
+  line-height: var(--line-height-normal);
+  margin: 0;
+}
+
+/* Mensagem de erro */
+.input-field__error {
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+  line-height: var(--line-height-normal);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.input-field__error::before {
+  content: '⚠';
+  font-size: var(--font-size-base);
+  flex-shrink: 0;
+}
+
+/* Mensagem de sucesso */
+.input-field__success {
+  font-size: var(--font-size-sm);
+  color: var(--color-success);
+  line-height: var(--line-height-normal);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.input-field__success::before {
+  content: '✓';
+  font-size: var(--font-size-base);
+  flex-shrink: 0;
+}
+
+/* Animações */
+.input-field__icon {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.input-field__error,
+.input-field__success {
+  animation: slideInUp 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estados de foco */
+.input-field:focus-within .input-field__label {
+  color: var(--color-primary);
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .input-field__label {
+    font-size: var(--font-size-base);
+  }
+  
+  .input-field__helper,
+  .input-field__error,
+  .input-field__success {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Modo escuro - as cores já são controladas pelas variáveis CSS */
+
+/* Melhoria de acessibilidade para usuários que preferem movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .input-field__icon,
+  .input-field__error,
+  .input-field__success {
+    animation: none;
+  }
+}

@@ -1,0 +1,167 @@
+/* Estilos da aplicação principal */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-backgroundSecondary) 100%);
+  background-attachment: fixed;
+}
+
+/* Header foi movido para componente próprio */
+
+/* Main content */
+.app-main {
+  flex: 1;
+  padding: var(--spacing-8) 0;
+  position: relative;
+}
+
+.app-main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Footer */
+.app-footer {
+  background-color: var(--color-backgroundTertiary);
+  color: var(--color-textSecondary);
+  padding: var(--spacing-6) 0;
+  margin-top: auto;
+  border-top: 1px solid var(--color-border);
+}
+
+.app-footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .app-footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.app-footer-text {
+  font-size: var(--font-size-sm);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+.app-footer-links {
+  display: flex;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .app-footer-links {
+    justify-content: flex-end;
+  }
+}
+
+.app-footer-link {
+  font-size: var(--font-size-sm);
+  color: var(--color-textTertiary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--border-radius-sm);
+}
+
+.app-footer-link:hover {
+  color: var(--color-primary);
+  background-color: var(--color-backgroundSecondary);
+  text-decoration: none;
+}
+
+.app-footer-link:focus {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .app-main {
+    padding: var(--spacing-4) 0;
+  }
+  
+  .app-logo {
+    font-size: var(--font-size-xl);
+  }
+  
+  .app-footer {
+    padding: var(--spacing-4) 0;
+  }
+}
+
+/* Modo escuro */
+/* Modo escuro - as cores já são controladas pelas variáveis CSS */
+
+/* Animações suaves */
+.app-header {
+  animation: slideInDown 0.6s ease-out;
+}
+
+.app-main {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.app-footer {
+  animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Melhoria de acessibilidade para movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .app-header,
+  .app-main,
+  .app-footer {
+    animation: none;
+  }
+  
+  .app-footer-link {
+    transition: none;
+  }
+}

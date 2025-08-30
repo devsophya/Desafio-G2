@@ -1,0 +1,31 @@
+/* Link "Pular para conteúdo" */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  z-index: 1000;
+  background-color: var(--color-primary);
+  color: var(--color-textInverse);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  transition: var(--transition-fast);
+  border: 2px solid var(--color-primary);
+}
+
+.skip-link:focus {
+  top: 6px;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--color-primary), 0.3);
+}
+
+.skip-link:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.skip-link:active {
+  transform: translateY(1px);
+}

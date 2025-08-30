@@ -1,0 +1,85 @@
+/* Componente Input */
+.input {
+  display: block;
+  border: var(--border-width-1) solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-surface);
+  transition: var(--transition-fast);
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+}
+
+/* Estados do input */
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input:disabled {
+  background-color: var(--color-backgroundTertiary);
+  color: var(--color-textTertiary);
+  cursor: not-allowed;
+}
+
+.input::placeholder {
+  color: var(--color-textTertiary);
+}
+
+/* Variações */
+.input--default {
+  border-color: var(--color-border);
+}
+
+.input--error {
+  border-color: var(--color-error);
+  background-color: var(--color-error-light);
+}
+
+.input--error:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.input--success {
+  border-color: var(--color-success);
+  background-color: var(--color-success-light);
+}
+
+.input--success:focus {
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Tamanhos */
+.input--sm {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-tight);
+}
+
+.input--md {
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}
+
+.input--lg {
+  padding: var(--spacing-4) var(--spacing-5);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+}
+
+/* Largura total */
+.input--full-width {
+  width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .input {
+    font-size: 16px; /* Previne zoom no iOS */
+  }
+}
+
+/* O modo escuro agora é gerenciado pelo sistema de temas */

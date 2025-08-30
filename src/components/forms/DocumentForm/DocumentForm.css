@@ -1,0 +1,286 @@
+/* Componente DocumentForm */
+.document-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-4);
+}
+
+/* Layout desktop */
+@media (min-width: 1024px) {
+  .document-form {
+    grid-template-columns: 1fr 400px;
+    gap: var(--spacing-8);
+  }
+}
+
+/* Card principal */
+.document-form__main {
+  width: 100%;
+}
+
+/* Header */
+.document-form__header {
+  text-align: center;
+  margin-bottom: var(--spacing-6);
+}
+
+.document-form__title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-2) 0;
+  line-height: var(--line-height-tight);
+}
+
+.document-form__subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-textSecondary);
+  margin: 0;
+  line-height: var(--line-height-normal);
+}
+
+/* Formulário */
+.document-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+/* Seletor de tipo */
+.document-form__type-selector {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.document-form__legend {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-4);
+  padding: 0;
+}
+
+.document-form__radio-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-3);
+}
+
+@media (min-width: 640px) {
+  .document-form__radio-group {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.document-form__radio {
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+
+.document-form__radio input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.document-form__radio-label {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-4);
+  border: var(--border-width-2) solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-backgroundSecondary);
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.document-form__radio-label::before {
+  content: '';
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-3);
+  width: 20px;
+  height: 20px;
+  border: var(--border-width-2) solid var(--color-border);
+  border-radius: 50%;
+  background-color: var(--color-backgroundSecondary);
+  transition: var(--transition-fast);
+}
+
+.document-form__radio-label::after {
+  content: '';
+  position: absolute;
+  top: calc(var(--spacing-3) + 4px);
+  right: calc(var(--spacing-3) + 4px);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  transform: scale(0);
+  transition: var(--transition-fast);
+}
+
+.document-form__radio:hover .document-form__radio-label {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.document-form__radio input:checked + .document-form__radio-label {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.document-form__radio input:checked + .document-form__radio-label::before {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface);
+}
+
+.document-form__radio input:checked + .document-form__radio-label::after {
+  transform: scale(1);
+}
+
+.document-form__radio input:focus + .document-form__radio-label {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.document-form__radio-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-1);
+}
+
+.document-form__radio-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-textSecondary);
+}
+
+/* Seção de input */
+.document-form__input-section {
+  width: 100%;
+}
+
+/* Ações */
+.document-form__actions {
+  display: flex;
+  gap: var(--spacing-3);
+  justify-content: flex-end;
+}
+
+@media (max-width: 640px) {
+  .document-form__actions {
+    flex-direction: column-reverse;
+  }
+}
+
+/* Mensagem de sucesso */
+.document-form__success {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  background: linear-gradient(135deg, var(--color-success-light) 0%, var(--color-surface) 100%);
+  border: var(--border-width-2) solid var(--color-success);
+  border-radius: var(--border-radius-lg);
+  animation: slideInUp 0.5s ease-out;
+}
+
+.document-form__success-icon {
+  font-size: var(--font-size-2xl);
+  flex-shrink: 0;
+}
+
+.document-form__success-content {
+  flex: 1;
+}
+
+.document-form__success-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-success);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.document-form__success-message {
+  font-size: var(--font-size-sm);
+  color: var(--color-textTertiary);
+  margin: 0;
+  font-family: var(--font-family-mono);
+}
+
+/* Card informativo */
+.document-form__info {
+  align-self: start;
+  position: sticky;
+  top: var(--spacing-4);
+}
+
+@media (max-width: 1023px) {
+  .document-form__info {
+    position: static;
+  }
+}
+
+/* Animações */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estados de carregamento */
+.document-form__form:has(button[aria-busy="true"]) {
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.document-form__form:has(button[aria-busy="true"]) .document-form__radio-label {
+  background-color: var(--color-backgroundSecondary);
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .document-form {
+    padding: var(--spacing-2);
+  }
+  
+  .document-form__title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .document-form__subtitle {
+    font-size: var(--font-size-base);
+  }
+  
+  .document-form__legend {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Modo escuro - as cores já são controladas pelas variáveis CSS */
+
+/* Melhoria de acessibilidade para movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .document-form__success {
+    animation: none;
+  }
+  
+  .document-form__radio-label,
+  .document-form__radio-label::before,
+  .document-form__radio-label::after {
+    transition: none;
+  }
+}

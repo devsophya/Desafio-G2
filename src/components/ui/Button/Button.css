@@ -1,0 +1,168 @@
+/* Componente Button */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  border: var(--border-width-1) solid transparent;
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  text-decoration: none;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Spinner de loading */
+.button__spinner {
+  display: inline-flex;
+  animation: spin 1s linear infinite;
+}
+
+.button__spinner svg {
+  width: 1em;
+  height: 1em;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estado de loading */
+.button--loading .button__text {
+  opacity: 0.7;
+}
+
+/* Ícones */
+.button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.button__icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* Variações */
+.button--primary {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.button--primary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.button--secondary {
+  background-color: var(--color-textSecondary);
+  color: var(--color-textInverse);
+  border-color: var(--color-textSecondary);
+}
+
+.button--secondary:hover:not(:disabled) {
+  background-color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.button--outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.button--outline:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  color: var(--color-textInverse);
+}
+
+.button--ghost {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: transparent;
+}
+
+.button--ghost:hover:not(:disabled) {
+  background-color: var(--color-backgroundSecondary);
+  color: var(--color-primary-dark);
+}
+
+.button--danger {
+  background-color: var(--color-error);
+  color: var(--color-textInverse);
+  border-color: var(--color-error);
+}
+
+.button--danger:hover:not(:disabled) {
+  background-color: #dc2626;
+  border-color: #dc2626;
+}
+
+/* Tamanhos */
+.button--sm {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-tight);
+}
+
+.button--md {
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}
+
+.button--lg {
+  padding: var(--spacing-4) var(--spacing-6);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+}
+
+/* Largura total */
+.button--full-width {
+  width: 100%;
+}
+
+/* Efeito de ripple (opcional) */
+.button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+  pointer-events: none;
+}
+
+.button:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Modo escuro - as cores já são controladas pelas variáveis CSS */
